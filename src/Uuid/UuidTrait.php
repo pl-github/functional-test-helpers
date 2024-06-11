@@ -28,17 +28,22 @@ trait UuidTrait
         $this->lastUuidValue = 0;
     }
 
-    final protected function nextUuid(): string
+    final protected static function uuidFromInteger(int $number): string
     {
-        $this->lastUuidValue ??= 0;
-
-        $uuid = str_pad(dechex(++$this->lastUuidValue), 32, '0', STR_PAD_LEFT);
+        $uuid = str_pad(dechex($number), 32, '0', STR_PAD_LEFT);
         $uuid = substr_replace($uuid, '-', 8, 0);
         $uuid = substr_replace($uuid, '-', 13, 0);
         $uuid = substr_replace($uuid, '-', 18, 0);
         $uuid = substr_replace($uuid, '-', 23, 0);
 
         return (string) Uuid::fromString($uuid);
+    }
+
+    final protected function nextUuid(): string
+    {
+        $this->lastUuidValue ??= 0;
+
+        return self::uuidFromInteger(++$this->lastUuidValue);
     }
 
     final protected static function assertIsUuid(mixed $actual, string $message = ''): void
