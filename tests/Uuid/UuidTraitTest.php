@@ -17,6 +17,12 @@ final class UuidTraitTest extends TestCase
 {
     use UuidTrait;
 
+    public function testCreateUuidByInteger(): void
+    {
+        self::assertEquals('00000000-0000-0000-0000-000000000001', self::uuidFromInteger(1));
+        self::assertEquals('00000000-0000-0000-0000-000000000002', self::uuidFromInteger(2));
+    }
+
     public function testNextUuid(): void
     {
         self::assertEquals('00000000-0000-0000-0000-000000000001', $this->nextUuid());
