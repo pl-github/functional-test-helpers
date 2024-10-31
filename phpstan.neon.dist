@@ -16,6 +16,7 @@ parameters:
         - '#Method Brainbits\\FunctionalTestHelpers\\Tests\\.*Test::setUpSnapshot\(\) is protected, but since the containing class is final, it can be private.#'
         - '#Method Brainbits\\FunctionalTestHelpers\\Tests\\Request\\RequestTraitTest::.*\(\) is protected, but since the containing class is final, it can be private#'
         - '#Method Brainbits\\FunctionalTestHelpers\\Tests\\Schema\\SchemaTraitTest::.*\(\) is protected, but since the containing class is final, it can be private#'
+        - '#Method Brainbits\\FunctionalTestHelpers\\Tests\\SevenZipContents\\SevenZipContentsTraitTest::.*\(\) is protected, but since the containing class is final, it can be private#'
         - '#Method Brainbits\\FunctionalTestHelpers\\Tests\\Uuid\\UuidTraitTest::.*\(\) is protected, but since the containing class is final, it can be private#'
         - '#Method Brainbits\\FunctionalTestHelpers\\Tests\\ZipContents\\ZipContentsTraitTest::.*\(\) is protected, but since the containing class is final, it can be private#'
         - '#Safe\\DateTimeImmutable#'
@@ -29,6 +30,7 @@ parameters:
             enabled: false
         noExtends:
             classesAllowedToBeExtended:
+                - Archive7z\Archive7z
                 - Monolog\Handler\AbstractProcessingHandler
                 - PHPUnit\Framework\Constraint\Constraint
                 - RuntimeException
